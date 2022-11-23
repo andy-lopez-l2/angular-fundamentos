@@ -8,6 +8,11 @@ export class EventService {
     return EVENTS;
   }
 
+  getOneEvent(id: number) {
+    console.log('recibo', id);
+    return EVENTS.find((events) => events.id === id);
+  }
+
   constructor() {}
 }
 

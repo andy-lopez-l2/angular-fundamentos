@@ -1,0 +1,18 @@
+<div class="card" style="width: 18rem">
+  <img
+    src="../../../assets/angular-logo.svg"
+    class="card-img-top"
+    alt="angular-logo"
+  />
+  <div class="card-body">
+    <h5 class="card-title">
+      Event Id: <span>{{ event?.id }}</span>
+    </h5>
+
+    <h5><span>Event Name:</span> {{ event?.name }}</h5>
+    <p><span>Event Name:</span>{{ event?.time }}</p>
+    <p *ngIf="event.location?.country">
+      <span>Location: </span>{{ event.location.country }}
+    </p>
+  </div>
+</div>
