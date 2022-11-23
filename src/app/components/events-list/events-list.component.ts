@@ -1,49 +1,19 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { EventService } from 'src/app/services/event.service';
 
 @Component({
   selector: 'app-events-list',
   templateUrl: './events-list.component.html',
   styleUrls: ['./events-list.component.css'],
 })
-export class EventsListComponent {
-  events = [
-    {
-      id: 1,
-      name: 'Angular Connect',
-      time: '10:00 am',
-      price: 599.99,
-      imageUrl: '',
-      location: {
-        address: '1057 DT',
-        coty: 'London',
-        country: 'England',
-      },
-    },
-    {
-      id: 2,
-      name: 'Angular Connect',
-      time: '9:00 am',
-      price: 599.99,
-      imageUrl: '',
-      location: {
-        address: '1057 DT',
-        coty: 'London',
-        country: '',
-      },
-    },
-    {
-      id: 3,
-      name: 'Angular Connect',
-      time: '8:00 am',
-      price: 599.99,
-      imageUrl: '',
-      location: {
-        address: '1057 DT',
-        coty: 'London',
-        country: 'England',
-      },
-    },
-  ];
+export class EventsListComponent implements OnInit {
+  events: any[] = [];
+
+  constructor(private eventService: EventService) {}
+
+  ngOnInit() {
+    this.events = this.eventService.getEvents();
+  }
 
   recivedMsj(event: any) {
     console.log(event);
